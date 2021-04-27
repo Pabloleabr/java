@@ -17,6 +17,10 @@ public class pokemon {
         status = "ALIVE";
     }
     
+    double getMaxhp(){
+        return ivs.getHp();
+    }
+    
     String getName(){
         return nombre;
     }
