@@ -16,7 +16,7 @@ public class pokemon {
         tempStats = new double[] {ivs.getHp(), ivs.getAtk(), ivs.getDef(), ivs.getSpd()};
         status = "ALIVE";
     }
-    
+
     double getMaxhp(){
         return ivs.getHp();
     }
@@ -75,6 +75,9 @@ public class pokemon {
             if(p2.getType().checkWeakness(m.getMtype())){
                 damage *= 2;
             }
+            else if(p2.getType().checkResistance(m.getMtype())){
+                damage *= 0.5;
+            }
 
             p2.takeDamage(damage);
 
@@ -128,9 +131,11 @@ class IVs{
 class type{
     String pType;
     String weak;
-    type(String type, String weakness){
+    String res;
+    type(String type, String weakness, String resistance){
         pType = type;
         weak = weakness;
+        res = resistance;
     }
 
     String getType(){
@@ -139,6 +144,20 @@ class type{
 
     String getWeak(){
         return weak;
+    }
+
+    String getResistance(){
+        return res;
+    }
+
+    boolean checkResistance(type opType){
+        if(this.getResistance() == opType.getType()){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
     }
 
     boolean checkWeakness(type opType){

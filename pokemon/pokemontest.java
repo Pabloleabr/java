@@ -15,16 +15,16 @@ public class pokemontest {
 
     static String select;
     static int move;
-    static type fire = new type(F, W);
-    static type water = new type(W, G);
-    static type grass = new type(G, F);
-    static type normal = new type(N, "nothing");
+    static type fire = new type(F, W ,G);
+    static type water = new type(W, G , F);
+    static type grass = new type(G, F, W);
+    static type normal = new type(N, "nothing" , "nothing");
     static move pound = new move("pound", 40.0, normal, ATK);
     static move grassNot = new move("Grass not", 40.0, grass, ATK);
     static move ember = new move("Ember", 40.0, fire, ATK);
     static move waterDrop = new move("Water Drop", 40.0, water, ATK);
     static move enrage = new move("Enrage", 1.3, normal, BATK);
-    static move maxDef = new move("Max Defencee", 5.0, normal, BDEF);
+    static move maxDef = new move("Max Defencee", 2.0, normal, BDEF);
     static move blank = new move("Attaque inofensivo", -999 , normal, ATK);
     static IVs IVbase = new IVs(101.0, 23, 20, 21);
     static IVs bossIv = new IVs(666.0,50,50,50);
@@ -80,9 +80,9 @@ public class pokemontest {
     }
     static String menu(){
         return "----------------------------------\n"+
-        boss.getName() + " HP " + boss.getStats()[0] + "/" + boss.getMaxhp() + "\n"
+        boss.getName() + " HP " + (int)boss.getStats()[0] + "/" + (int)boss.getMaxhp() + "\n"
         + boss.getType().getType() + "\n" + "\n"
-        + currentP.getName() + " HP " + currentP.getStats()[0] + "/" + currentP.getMaxhp() + "\n"
+        + currentP.getName() + " HP " + (int)currentP.getStats()[0] + "/" + (int)currentP.getMaxhp() + "\n"
         +"----------------------------------"
         ;
     }
