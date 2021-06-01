@@ -14,6 +14,9 @@ public class panelControl extends JPanel implements ActionListener{
     JButton air;
     JButton water;
     JButton wood;
+    JButton generator;
+    JButton fire;
+    JButton smoke;
     static block currentBlock = panel.tablero.sand;
 
     panelControl(){
@@ -27,12 +30,18 @@ public class panelControl extends JPanel implements ActionListener{
         this.air = new JButton("erase");
         this.water = new JButton("water");
         this.wood = new JButton("wood");
+        this.generator = new JButton("generator");
+        this.fire = new JButton("fire");
+        this.smoke = new JButton("smoke");
 
         addButton(sand, Color.YELLOW);
         addButton(wall, Color.GRAY);
         addButton(air, Color.BLACK);
         addButton(water, Color.CYAN);
         addButton(wood, (Color)panel.tablero.wood.color);
+        addButton(generator, (Color)panel.tablero.generator.color);
+        addButton(fire, (Color)panel.tablero.fire.color);
+        addButton(smoke, (Color)panel.tablero.smoke.color);
         
     }
 
@@ -66,6 +75,18 @@ public class panelControl extends JPanel implements ActionListener{
 
         if(e.getSource()==wood){
             currentBlock = panel.tablero.wood;
+        }
+
+        if(e.getSource()==generator){
+            currentBlock = panel.tablero.generator;
+        }
+
+        if(e.getSource()==fire){
+            currentBlock = panel.tablero.fire;
+        }
+
+        if(e.getSource()==smoke){
+            currentBlock = panel.tablero.smoke;
         }
     }
 

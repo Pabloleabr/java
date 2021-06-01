@@ -10,7 +10,7 @@ public class panel extends JPanel implements ActionListener, MouseInputListener{
 
     static final int SCREEN_WIDTH = 800;
     static final int SCREEN_HEIGHT = 800;
-    static final int UNIT_SIZE = 2;
+    static final int UNIT_SIZE = 4;
     static board tablero;
     Timer timer;
 
